@@ -1,3 +1,13 @@
+# User-specified
+*.vs
+obj
+bin
+x64
+packages
+cache
+Debug
+Release
+
 # Prerequisites
 *.d
 

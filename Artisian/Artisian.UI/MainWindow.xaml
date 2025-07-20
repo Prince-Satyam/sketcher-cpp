@@ -1,0 +1,83 @@
+﻿<Window x:Class="Artisian.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:fluent="clr-namespace:Fluent;assembly=Fluent"
+        xmlns:local="clr-namespace:Artisian.UI"
+        xmlns:h="http://helix-toolkit.org/wpf"
+        mc:Ignorable="d"
+        Title="Artisian Sketcher" Height="600" Width="800">
+
+	<DockPanel>
+		<Ribbon 
+			Background="#1E1E1E" Foreground="White"
+			DockPanel.Dock="Top" Margin="0,-22,0,0" SelectionChanged="Ribbon_SelectionChanged">
+			<Ribbon.ApplicationMenu>
+				<RibbonApplicationMenu SmallImageSource="Resources/logo.png">
+					<RibbonApplicationMenu.AuxiliaryPaneContent>
+						<RibbonGallery ScrollViewer.VerticalScrollBarVisibility="Auto">
+							<RibbonGalleryCategory MaxColumnCount="1">
+								<RibbonGalleryItem
+								x:Name="GalleryItem1" Content="Application menu content" 
+								MouseOverBackground="Transparent"
+								MouseOverBorderBrush="Transparent"
+								CheckedBackground="Transparent"
+								CheckedBorderBrush="Transparent"
+								/>
+								<RibbonGalleryItem>
+									<Hyperlink x:Name="hl1" Click="hl1_Click" NavigateUri="http://www.bing.com">
+										<Run Text="http://www.bing.com"/>
+									</Hyperlink>
+								</RibbonGalleryItem>
+							</RibbonGalleryCategory>
+						</RibbonGallery>
+					</RibbonApplicationMenu.AuxiliaryPaneContent>
+					<RibbonApplicationMenuItem x:Name="menuItem1" Header="Add"
+						ImageSource="Resources/add.png"/>
+					<RibbonApplicationMenuItem x:Name="menuItem2" Header="Settings"
+						ImageSource="Resources/system_preferences.png"/>
+					<RibbonApplicationMenuItem x:Name="menuItem3" Header="Save"
+						ImageSource="Resources/filesave.png"/>
+				</RibbonApplicationMenu>
+			</Ribbon.ApplicationMenu>
+			<RibbonTab x:Name="rbnTab1" Header="Sketch">
+				<RibbonGroup x:Name="rbnGr1" Header="2-D Shapes">
+					<RibbonButton x:Name="btnRibbon1" Label="Line"
+					LargeImageSource="Resources/line.png"
+					ToolTip="Mention the first and last point to draw a line"/>
+				</RibbonGroup>
+				<RibbonGroup x:Name="rbnGr2" Header="New group">
+					<RibbonButton x:Name="btnRibbon3" Label="Font"
+                    LargeImageSource="Resources/fonts.png"/>
+					<RibbonButton x:Name="btnRibbon4" Label="Delete"
+                    LargeImageSource="Resources/recycle_bin.png"/>
+				</RibbonGroup>
+			</RibbonTab>
+			<RibbonTab x:Name="rbnTab2" Header="Tab2">
+				<RibbonGroup x:Name="rbnGr3" Header="Other Group">
+					<RibbonButton x:Name="btnRibbon5" Label="Play"
+                    LargeImageSource="Resources/play.png"/>
+					<RibbonButton x:Name="btnRibbon6" Label="List"
+                    LargeImageSource="Resources/kmenuedit.png"/>
+				</RibbonGroup>
+				<RibbonGroup x:Name="rbnGr4" Header="What a group">
+					<RibbonButton x:Name="btnRibbon7" Label="Sleep"
+                    LargeImageSource="Resources/icon_sleep.png"/>
+					<RibbonButton x:Name="btnRibbon8" Label="Add"
+                    LargeImageSource="Resources/add.png"/>
+				</RibbonGroup>
+			</RibbonTab>
+		</Ribbon>
+
+		<Grid>
+			<!-- Helix Viewport for 3D rendering -->
+			<h:HelixViewport3D Name="MainViewport" Background="White">
+				<!-- Camera (Auto-handled by Helix) -->
+				<h:SunLight/>
+				<ModelVisual3D x:Name="SceneModel"/>
+			</h:HelixViewport3D>
+		</Grid>
+	</DockPanel>
+
+</Window>
