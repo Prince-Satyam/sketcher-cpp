@@ -15,7 +15,7 @@ namespace Artisian.UI
    {
 
       /// <summary>
-      /// Handles the click event of the line button.
+      /// Handles the click event of the line button
       /// </summary>
       /// <param name="sender"></param>
       /// <param name="e"></param>
